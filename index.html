@@ -240,7 +240,7 @@ strong{font-weight:600;color:var(--ac)}
 <p>매칭 리포트의 정보 위계를 세 층위에 맞춰 재배치:</p>
 <p><strong>상단:</strong> 검증 + 결 리딩 + 매칭 타입 → <em>"이 사람이 왜 나에게 왔는지"</em> (이유 먼저 = 결정사)</p>
 <p><strong>중단:</strong> 프로필 사진 + 스펙 + 필터 부합 → <em>"이 사람은 매력적이고 조건도 맞는가"</em> (매력 + 현실)</p>
-<p><strong>하단:</strong> 파동 + 공통 키워드 + 주의점 + 매칭팀 메모 → <em>"만나면 어떤 느낌일까"</em> (기대감)</p>
+<p><strong>하단:</strong> 파동 + 공통 키워드 + 주의점 + 담당 매니저 코멘트 → <em>"만나면 어떤 느낌일까"</em> (기대감)</p>
 <p>이 순서면 <strong>"이유 → 매력 → 기대감"</strong>으로 자연스럽게 "소개 수락"에 도달한다. 세 뇌가 순서대로 반응.</p>
 </div>
 </section>
@@ -473,8 +473,8 @@ strong{font-weight:600;color:var(--ac)}
 <!-- 공통 키워드 -->
 <div class="kw"><div class="kw-t">공통 키워드</div><div class="kw-r"><span>📚</span> 독서 · 카페 문화 <span class="kw-m">공통 관심사</span></div><div class="kw-r"><span>💬</span> 깊은 대화 중시 <span class="kw-m">소통 일치</span></div><div class="kw-r"><span>🏡</span> 안정적 가정 추구 <span class="kw-m">가치관 일치</span></div></div>
 
-<!-- 매칭팀 메모 -->
-<div class="mgr"><div class="mgr-l">✦ 매칭팀 메모</div><div class="mgr-t">비슷한 취미와 가치관. 카페 독서와 산책을 함께 즐길 수 있고, 진솔한 대화를 중시하는 점이 잘 어울림.</div></div>
+<!-- 담당 매니저 코멘트 -->
+<div class="mgr"><div class="mgr-l">✦ 담당 매니저 한마디</div><div class="mgr-t">솔직히 두 분 다 처음엔 말수가 적은 편이라 어색할 수 있어요. 그런데 카페에서 책 얘기 한번 꺼내면 대화가 꽤 길어질 분들이에요. 조급해하지 말고 천천히 알아가시면 좋겠습니다.</div></div>
 
 <!-- CTA — 결이음권 아이콘 통합, 가격 바 제거 -->
 <div class="cta"><button class="cta-y">📋 소개 수락 <span style="font-size:10px;font-weight:400;opacity:.7">결이음권 사용</span></button><button class="cta-n">이번 소개는 보류</button></div>
@@ -589,7 +589,8 @@ strong{font-weight:600;color:var(--ac)}
 <tr><td>사진 위치</td><td class="bad">최상단 (판단의 시작)</td><td class="good">결 리딩 다음, 스펙과 함께 (매력+현실)</td><td>이유를 본 후에 매력 확인</td></tr>
 <tr><td>타이머</td><td class="bad">47시간 23분</td><td class="good">없음</td><td>긴급성 ≠ 결혼 서비스</td></tr>
 <tr><td>뱃지</td><td class="bad">외모/키/브레인 (평가)</td><td class="good">실제 스펙 + ✓검증 뱃지 + 필터 부합 하이라이트</td><td>평가가 아니라 사실+조건 부합</td></tr>
-<tr><td>매칭 이유</td><td class="bad">"유사도 높아요" (1줄)</td><td class="good">구체적 이유 3~4문장</td><td>결정사 매니저가 하는 설명</td></tr>
+<tr><td>매칭 이유</td><td class="bad">"유사도 높아요" (1줄)</td><td class="good">결 리딩 (당신은 이런 사람 → 이 사람이 맞다)</td><td>콜드리딩 구조 = 납득</td></tr>
+<tr><td>매니저 코멘트</td><td class="bad">없음</td><td class="good">담당 매니저 한마디 — 1인칭, 솔직한 톤</td><td>사람이 봤다는 느낌 = 10만원의 가치</td></tr>
 <tr><td>주의점</td><td class="bad">없음 (전부 긍정)</td><td class="good">"주말 방식이 다소 다르다"</td><td>솔직한 관찰 = 신뢰</td></tr>
 <tr><td>CTA</td><td class="bad">만나볼래요 / 거절</td><td class="good">소개 수락 / 보류</td><td>언어의 무게감</td></tr>
 <tr><td>결제 표현</td><td class="bad">클로버 / ❋ 코인</td><td class="good">CTA에 결이음권 통합, 가격은 확인 화면</td><td>매칭 화면에서 가격 분리</td></tr>
@@ -715,20 +716,21 @@ strong{font-weight:600;color:var(--ac)}
 <tr><td>1</td><td>첫 화면에서 가장 먼저 보이는 것</td><td class="bad">사진</td><td class="good">검증 사실 + 결 리딩 (이유 먼저)</td></tr>
 <tr><td>2</td><td>사진의 위치와 역할</td><td class="bad">최상단, 판단의 시작</td><td class="good">결 리딩 다음, 스펙과 함께 (이유 확인 후 매력)</td></tr>
 <tr><td>3</td><td>뱃지/태그의 내용</td><td class="bad">평가 ("매력적")</td><td class="good">실제 스펙 + ✓검증 + 필터 부합</td></tr>
-<tr><td>4</td><td>매칭 이유의 구체성</td><td class="bad">한 줄 감성</td><td class="good">3~4문장 구체적 분석</td></tr>
-<tr><td>5</td><td>주의점/리스크 안내</td><td class="bad">없음</td><td class="good">1개 솔직한 관찰</td></tr>
-<tr><td>6</td><td>CTA 언어</td><td class="bad">만나볼래요/거절</td><td class="good">소개 수락/보류</td></tr>
-<tr><td>7</td><td>결제 표현</td><td class="bad">가상화폐/코인</td><td class="good">CTA에 결이음권 통합 + 확인 화면에서 원화</td></tr>
-<tr><td>8</td><td>타이머/긴급성 장치</td><td class="bad">있음</td><td class="good">없음</td></tr>
-<tr><td>9</td><td>컬러 톤</td><td class="bad">로맨틱(보라/핑크)</td><td class="good">신뢰(네이비/크림)</td></tr>
-<tr><td>10</td><td>유저가 직접 하는 일의 양</td><td class="bad">많음 (셀프서비스)</td><td class="good">최소 (대행)</td></tr>
-<tr><td>11</td><td>법적 정보 노출</td><td class="bad">약관 하단 묻힘</td><td class="good">Trust Center 전면 배치</td></tr>
-<tr><td>12</td><td>프라이버시 보호</td><td class="bad">언급 없음</td><td class="good">지인 차단, 단계별 공개 명시</td></tr>
+<tr><td>4</td><td>매칭 이유의 구조</td><td class="bad">한 줄 감성</td><td class="good">결 리딩 (당신은 이런 사람 → 이 사람이 맞다)</td></tr>
+<tr><td>5</td><td>담당 매니저 코멘트</td><td class="bad">없음 또는 기계적 요약</td><td class="good">1인칭 솔직한 톤 ("처음엔 어색할 수 있어요")</td></tr>
+<tr><td>6</td><td>주의점/리스크 안내</td><td class="bad">없음</td><td class="good">1개 솔직한 관찰</td></tr>
+<tr><td>7</td><td>CTA 언어</td><td class="bad">만나볼래요/거절</td><td class="good">소개 수락/보류</td></tr>
+<tr><td>8</td><td>결제 표현</td><td class="bad">가상화폐/코인</td><td class="good">CTA에 결이음권 통합 + 확인 화면에서 원화</td></tr>
+<tr><td>9</td><td>타이머/긴급성 장치</td><td class="bad">있음</td><td class="good">없음</td></tr>
+<tr><td>10</td><td>컬러 톤</td><td class="bad">로맨틱(보라/핑크)</td><td class="good">신뢰(네이비/크림)</td></tr>
+<tr><td>11</td><td>유저가 직접 하는 일의 양</td><td class="bad">많음 (셀프서비스)</td><td class="good">최소 (대행)</td></tr>
+<tr><td>12</td><td>법적 정보 노출</td><td class="bad">약관 하단 묻힘</td><td class="good">Trust Center 전면 배치</td></tr>
+<tr><td>13</td><td>프라이버시 보호</td><td class="bad">언급 없음</td><td class="good">지인 차단, 단계별 공개 명시</td></tr>
 </table>
 
 <div class="bx gd">
 <div class="bx-l">한 문장 정리</div>
-<p>결혼정보회사 느낌은 "고급스러운 디자인"이 아니라 <strong>"이유 → 매력 → 기대감" 순서로 세 가지 뇌를 모두 충족시키는 것</strong>이다. 이유가 먼저 보이고(결 리딩+매칭 타입), 매력과 현실이 확인되고(사진+스펙+필터), 만나면 어떨지 기대가 생기면(파동+공통점+매칭팀 메모) — "소개 수락"은 자연스럽게 따라온다.</p>
+<p>결혼정보회사 느낌은 "고급스러운 디자인"이 아니라 <strong>"이유 → 매력 → 기대감" 순서로 세 가지 뇌를 모두 충족시키는 것</strong>이다. 이유가 먼저 보이고(결 리딩+매칭 타입), 매력과 현실이 확인되고(사진+스펙+필터), 만나면 어떨지 기대가 생기면(파동+공통점+담당 매니저 코멘트) — "소개 수락"은 자연스럽게 따라온다.</p>
 </div>
 
 <div class="qt">사진이 커서 소개팅 앱으로 보이는 게 아니다. 사진이 "판단의 첫 문법"으로 쓰여서 소개팅 앱으로 보이는 것이다. 결혼정보회사의 첫 문법은 "이유"다. 이유를 먼저 보여주고, 매력을 확인시키고, 기대감을 만들면 — 세 가지 뇌가 모두 "만나고 싶다"에 도달한다.</div>
