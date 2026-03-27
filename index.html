@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>결하다 — 결혼정보회사 느낌을 만드는 법</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f3ef;--sf:#fff;--bd:#e0dcd6;--tx:#1a1a2e;--txm:#4a4a6a;--txl:#8888a0;--ac:#1a1f3a;--gd:#c9a55c;--rd:#d44;--gn:#4caf7a;--nv:#1a1f3a;--nm:#252b4a;--cr:#faf8f4;--cd:#f0ede6;--pw:#fff;--lav:#9b8ec4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans KR',sans-serif;font-weight:400;line-height:1.8;-webkit-font-smoothing:antialiased}
+.c{max-width:1100px;margin:0 auto;padding:48px 28px 120px}
+
+/* Header */
+.hd{margin-bottom:56px;padding-bottom:40px;border-bottom:2px solid var(--ac)}
+.hd-label{font-size:11px;letter-spacing:4px;color:var(--gd);font-weight:600;margin-bottom:12px}
+.hd h1{font-family:'Noto Serif KR',serif;font-size:36px;font-weight:900;color:var(--ac);line-height:1.3;margin-bottom:8px}
+.hd p{font-size:15px;color:var(--txm);font-weight:300}
+
+/* Section */
+.s{margin-bottom:64px}
+.sn{font-size:11px;letter-spacing:3px;color:var(--gd);font-weight:600;margin-bottom:6px}
+.s h2{font-family:'Noto Serif KR',serif;font-size:26px;font-weight:700;color:var(--ac);margin-bottom:6px}
+.s-sub{font-size:13px;color:var(--txl);margin-bottom:28px}
+.s p{font-size:15px;margin-bottom:16px;max-width:880px}
+.s h3{font-size:17px;font-weight:700;color:var(--ac);margin:32px 0 14px;padding-left:14px;border-left:3px solid var(--gd)}
+strong{font-weight:600;color:var(--ac)}
+
+/* Boxes */
+.bx{padding:20px 24px;margin:20px 0;border-radius:6px;max-width:880px}
+.bx.rd{background:#fef5f5;border-left:3px solid var(--rd)}
+.bx.gn{background:#f0f8f3;border-left:3px solid var(--gn)}
+.bx.gd{background:#fdf9f0;border-left:3px solid var(--gd)}
+.bx-l{font-size:11px;letter-spacing:1.5px;font-weight:700;margin-bottom:6px}
+.bx.rd .bx-l{color:var(--rd)}.bx.gn .bx-l{color:var(--gn)}.bx.gd .bx-l{color:var(--gd)}
+.bx p{font-size:14px;margin-bottom:6px}.bx p:last-child{margin-bottom:0}
+
+/* Tables */
+.tb{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;max-width:880px}
+.tb th{text-align:left;padding:10px 14px;font-weight:600;color:var(--txl);border-bottom:2px solid var(--bd);font-size:11px;letter-spacing:1px}
+.tb td{padding:12px 14px;border-bottom:1px solid var(--bd);vertical-align:top}
+.tb .hl{color:var(--gd);font-weight:600}
+.tb .bad{color:var(--rd);font-weight:500}
+.tb .good{color:var(--gn);font-weight:500}
+
+/* Lists */
+.ul{list-style:none;margin:12px 0;max-width:880px}
+.ul li{padding:5px 0 5px 16px;position:relative;font-size:14px}
+.ul li::before{content:'—';position:absolute;left:0;color:var(--gd)}
+
+/* Divider */
+.dv{border:none;border-top:1px solid var(--bd);margin:56px 0}
+
+/* Comparison grid */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0;max-width:880px}
+.cmp-card{border-radius:8px;padding:20px;border:1px solid var(--bd)}
+.cmp-card.dating{background:#fef5f8;border-color:#e8c8d0}
+.cmp-card.marriage{background:#f0f5f8;border-color:#c0d0e0}
+.cmp-label{font-size:11px;letter-spacing:2px;font-weight:700;margin-bottom:10px}
+.cmp-card.dating .cmp-label{color:var(--rd)}
+.cmp-card.marriage .cmp-label{color:#3366aa}
+.cmp-card p{font-size:13px;margin-bottom:6px;color:var(--txm)}
+
+/* Phone mockups */
+.mk{margin:32px 0;padding:32px 0;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.mk-t{font-size:11px;letter-spacing:3px;color:var(--gd);font-weight:600;margin-bottom:20px;text-align:center}
+.pr{display:flex;justify-content:center;align-items:flex-start;gap:28px;flex-wrap:wrap}
+.pw{text-align:center}
+.pl{font-size:10px;font-weight:600;letter-spacing:1.5px;margin-bottom:10px;padding:3px 10px;border-radius:4px;display:inline-block}
+.pl.bf{color:var(--rd);background:#fef0f0}
+.pl.af{color:var(--gn);background:#edf7f0}
+.pl.nw{color:var(--gd);background:#fdf8ee}
+
+.ph{width:320px;height:693px;background:#fff;border-radius:40px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.1),0 0 0 1px rgba(0,0,0,.05);position:relative}
+.ps{width:100%;height:100%;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.ps::-webkit-scrollbar{display:none}
+.sb{height:46px;padding:12px 18px 0;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:600;position:sticky;top:0;z-index:10}
+.sb.lt{background:#fff;color:var(--tx)}.sb.cr{background:var(--cr);color:var(--tx)}.sb.dk{background:var(--nv);color:#fff}
+
+/* Dating app style phone */
+.da{background:#fff}
+.da-hdr{display:flex;justify-content:space-between;align-items:center;padding:6px 16px 8px}
+.da-logo{font-family:'Noto Serif KR',serif;font-weight:900;font-size:18px;color:#7c6cb0}
+.da-photo{width:100%;height:340px;background:linear-gradient(135deg,#d4c5e8,#f0e4f4);position:relative;display:flex;align-items:center;justify-content:center;font-size:56px;opacity:.3}
+.da-info{position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(transparent,rgba(0,0,0,.5));color:#fff}
+.da-name{font-size:18px;font-weight:700}.da-sub{font-size:11px;opacity:.9}
+.da-timer{position:absolute;bottom:12px;right:12px;background:rgba(124,108,176,.9);color:#fff;padding:4px 10px;border-radius:14px;font-size:10px;font-weight:600}
+.da-type{text-align:center;padding:16px 16px 8px}
+.da-type-n{font-size:16px;font-weight:700}.da-type-d{font-size:11px;color:var(--txl);margin-top:2px}
+.da-wave{height:40px;margin:4px 16px;background:linear-gradient(90deg,#d4c5e8,#f0a060,#d4c5e8);border-radius:20px;opacity:.2}
+.da-quote{padding:10px 18px;font-size:11px;color:var(--txm);line-height:1.6}
+.da-badges{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;padding:8px 16px 20px}
+.da-badge{text-align:center;padding:8px 4px;background:#f8f6ff;border-radius:8px}
+.da-badge-i{font-size:12px}.da-badge-n{font-size:10px;font-weight:600}.da-badge-v{font-size:9px;color:var(--txl)}
+
+/* Marriage agency style phone */
+.ma{background:var(--cr)}
+.ma-hdr{display:flex;justify-content:space-between;align-items:center;padding:6px 16px 8px;background:var(--cr)}
+.ma-logo{font-family:'Noto Serif KR',serif;font-weight:900;font-size:16px;color:var(--nv)}
+.ma-logo .g{color:var(--gd)}
+
+/* Report header */
+.rh{padding:0 16px 12px}
+.rh-n{font-size:9px;letter-spacing:2px;color:var(--gd);font-weight:600}
+.rh-t{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:700;color:var(--nv);line-height:1.4}
+
+/* Card component */
+.cd{margin:0 12px 10px;background:#fff;border-radius:12px;padding:14px;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.cd-t{font-size:10px;font-weight:600;color:var(--nv);margin-bottom:8px}
+.cd p{font-size:11px;color:var(--txm);line-height:1.7;margin-bottom:4px}.cd p:last-child{margin-bottom:0}
+
+/* Proof card */
+.pf{margin:0 12px 10px;background:#fff;border-radius:12px;padding:14px;box-shadow:0 1px 8px rgba(0,0,0,.04);display:flex;gap:10px}
+.pf-photo{width:72px;height:88px;border-radius:8px;background:linear-gradient(135deg,#d4c5e8,#f0e4f4);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:28px;opacity:.3;position:relative}
+.pf-vb{position:absolute;bottom:4px;right:4px;width:18px;height:18px;background:var(--gn);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;border:2px solid #fff}
+.pf-info{flex:1}
+.pf-name{font-size:14px;font-weight:700;color:var(--nv)}
+.pf-basics{font-size:10px;color:var(--txm);margin-top:2px}
+.pf-vi{margin-top:6px;display:flex;flex-direction:column;gap:2px}
+.pf-item{font-size:9px;color:var(--gn);font-weight:500;display:flex;align-items:center;gap:3px}
+
+/* Match type card */
+.mt{margin:0 12px 10px;background:var(--nv);border-radius:12px;padding:14px;text-align:center}
+.mt-badge{display:inline-block;padding:4px 12px;background:rgba(201,165,92,.12);border:1px solid rgba(201,165,92,.25);border-radius:16px;font-size:12px;font-weight:700;color:var(--gd);margin-bottom:6px}
+.mt-sub{font-size:9px;color:rgba(255,255,255,.4);margin-bottom:8px}
+.mt-desc{font-size:11px;color:rgba(255,255,255,.7);line-height:1.7;text-align:left;font-weight:300}
+
+/* Wave card */
+.wv{margin:0 12px 10px;background:#fff;border-radius:12px;padding:14px;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.wv-t{font-size:10px;font-weight:600;color:var(--nv);margin-bottom:2px}
+.wv-sub{font-size:9px;color:var(--txl);margin-bottom:10px}
+.wv-svg{width:100%;height:70px;display:block}
+.wv-leg{display:flex;gap:12px;margin-top:6px;justify-content:center}
+.wv-leg-i{display:flex;align-items:center;gap:3px;font-size:9px;color:var(--txm)}
+.wv-leg-d{width:7px;height:7px;border-radius:50%}
+
+/* Caution card */
+.cau{margin:0 12px 10px;background:#fdf6f0;border:1px solid #e8d8c8;border-radius:12px;padding:12px 14px}
+.cau-l{font-size:9px;font-weight:600;color:#b8864a;margin-bottom:4px}
+.cau p{font-size:10px;color:var(--tx);line-height:1.6}
+
+/* Keywords */
+.kw{margin:0 12px 10px;background:#fff;border-radius:12px;padding:14px;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.kw-t{font-size:10px;font-weight:600;color:var(--nv);margin-bottom:8px}
+.kw-r{display:flex;align-items:center;gap:5px;margin-bottom:5px;font-size:10px;color:var(--tx)}
+.kw-m{font-size:8px;font-weight:600;color:var(--gn);background:rgba(76,175,122,.08);padding:1px 6px;border-radius:8px;margin-left:auto}
+
+/* Manager */
+.mgr{margin:0 12px 10px;background:var(--nv);border-radius:12px;padding:14px}
+.mgr-l{font-size:9px;letter-spacing:1px;color:var(--gd);font-weight:600;margin-bottom:6px}
+.mgr-t{font-size:11px;color:rgba(255,255,255,.75);line-height:1.7;font-weight:300}
+
+/* CTA */
+.cta{margin:0 12px 10px;display:flex;gap:6px}
+.cta-y{flex:1;padding:12px;background:var(--gd);color:var(--nv);border:none;border-radius:10px;font-family:inherit;font-size:13px;font-weight:700;text-align:center}
+.cta-n{padding:12px 14px;background:var(--cd);color:var(--txl);border:none;border-radius:10px;font-family:inherit;font-size:11px;font-weight:500}
+
+/* Trust bar */
+.trust{margin:0 12px 10px;padding:10px 12px;background:rgba(26,31,58,.03);border:1px solid var(--bd);border-radius:10px;display:flex;align-items:center;gap:8px}
+.trust-icon{font-size:14px}
+.trust-text{font-size:9px;color:var(--txm);line-height:1.5}
+.trust-text strong{color:var(--nv);font-weight:600}
+
+/* Bottom nav */
+.bnv{display:flex;justify-content:space-around;padding:8px 0 12px;border-top:1px solid var(--bd);background:#fff;position:sticky;bottom:0}
+.bnv-i{text-align:center;font-size:8px;color:var(--txl)}.bnv-i.act{color:var(--nv)}
+.bnv-ic{font-size:14px;margin-bottom:1px}
+
+/* Annotation */
+.ann{margin:0 12px 10px;padding:6px 10px;background:rgba(201,165,92,.06);border:1px dashed rgba(201,165,92,.3);border-radius:5px;font-size:9px;color:var(--gd);font-weight:600}
+
+/* Element analysis grid */
+.eg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:20px 0;max-width:880px}
+.eg-card{background:#fff;border:1px solid var(--bd);border-radius:8px;padding:16px;text-align:center}
+.eg-icon{font-size:28px;margin-bottom:8px}
+.eg-name{font-size:13px;font-weight:700;color:var(--ac);margin-bottom:4px}
+.eg-dating{font-size:11px;color:var(--rd);margin-bottom:2px}
+.eg-agency{font-size:11px;color:var(--gn)}
+
+/* Quote */
+.qt{border-left:2px solid var(--gd);padding-left:16px;margin:20px 0;font-style:italic;color:var(--txm);font-size:15px;max-width:880px}
+
+@media(max-width:768px){.c{padding:32px 16px 80px}.hd h1{font-size:26px}.cmp,.eg{grid-template-columns:1fr}.ph{width:280px;height:606px}.pr{gap:16px}}
+</style>
+</head>
+<body>
+<div class="c">
+
+<!-- Header -->
+<header class="hd">
+<div class="hd-label">DESIGN ANALYSIS</div>
+<h1>결혼정보회사 느낌을<br>어떻게 만드는가</h1>
+<p>소개팅 앱과 결혼정보회사는 같은 정보를 전혀 다른 방식으로 보여준다. 그 차이를 분석하고, 결하다에 적용한다.</p>
+</header>
+
+<!-- ===== S1: WHY ===== -->
+<section class="s">
+<div class="sn">01</div>
+<h2>왜 결혼정보회사 느낌을 줘야 하는가</h2>
+<p class="s-sub">10만원의 정당성은 화면이 만든다</p>
+
+<p>결하다의 만남 비용은 10만원. 소개팅 앱(무료~3만원)보다 3배 이상 비싸다. 유저가 이 가격을 납득하려면, 첫 화면을 보는 순간 <strong>"이건 소개팅 앱이 아니라 결혼 서비스"</strong>라고 느껴야 한다.</p>
+
+<p>지금 화면은 그렇지 않다. 큰 사진, 감성 태그, 보라색 톤, 타이머, 뱃지 — 전부 소개팅 앱의 문법이다. 이 상태로 10만원을 부르면 <strong>"비싼 소개팅 앱"</strong>이 된다.</p>
+
+<div class="bx gd">
+<div class="bx-l">핵심 원리</div>
+<p>"결혼정보회사 느낌"은 골드 색상이나 고급 폰트가 아니다.</p>
+<p><strong>사람이 아니라 "이유"가 먼저 보이고, 예쁨이 아니라 "검증"이 먼저 보이는 것.</strong></p>
+<p>매니저가 "이 분을 왜 소개하는지" 설명하는 것처럼, 화면이 "왜 이 사람인지"를 설명하면 — 그게 결혼정보회사 느낌이다.</p>
+</div>
+</section>
+
+<hr class="dv">
+
+<!-- ===== S2: 차이 분석 ===== -->
+<section class="s">
+<div class="sn">02</div>
+<h2>소개팅 앱 vs 결혼정보회사 — 무엇이 다른가</h2>
+<p class="s-sub">같은 정보도 순서와 방식이 바뀌면 완전히 다른 서비스가 된다</p>
+
+<h3>정보 위계의 차이</h3>
+
+<div class="cmp">
+<div class="cmp-card dating">
+<div class="cmp-label">소개팅 앱</div>
+<p><strong>1순위:</strong> 사진 (전체 화면)</p>
+<p><strong>2순위:</strong> 이름, 나이</p>
+<p><strong>3순위:</strong> 감성 태그 ("열정의 스파크")</p>
+<p><strong>4순위:</strong> 스펙 뱃지 (외모/키/학력)</p>
+<p><strong>판단 기준:</strong> "이 사람 괜찮아 보여?"</p>
+<p><strong>행동:</strong> 좋아요 / 거절 (빠른 판단)</p>
+</div>
+<div class="cmp-card marriage">
+<div class="cmp-label">결혼정보회사</div>
+<p><strong>1순위:</strong> 왜 이 사람을 소개하는지</p>
+<p><strong>2순위:</strong> 무엇이 검증되었는지</p>
+<p><strong>3순위:</strong> 기본 조건 요약</p>
+<p><strong>4순위:</strong> 프로필 사진</p>
+<p><strong>판단 기준:</strong> "이 소개가 납득이 되나?"</p>
+<p><strong>행동:</strong> 수락 / 보류 (신중한 판단)</p>
+</div>
+</div>
+
+<h3>UI 요소별 차이</h3>
+
+<div class="eg">
+<div class="eg-card">
+<div class="eg-icon">📸</div>
+<div class="eg-name">사진</div>
+<div class="eg-dating">소개팅: 풀스크린, 판단의 시작</div>
+<div class="eg-agency">결정사: 중간 크기, 검증 뱃지 동반</div>
+</div>
+<div class="eg-card">
+<div class="eg-icon">🏷</div>
+<div class="eg-name">라벨/뱃지</div>
+<div class="eg-dating">소개팅: "매력적인 외모" (평가형)</div>
+<div class="eg-agency">결정사: "재직증명서 확인 완료" (검증형)</div>
+</div>
+<div class="eg-card">
+<div class="eg-icon">💬</div>
+<div class="eg-name">소개 문구</div>
+<div class="eg-dating">소개팅: "유사도가 높아요" (감성)</div>
+<div class="eg-agency">결정사: "갈등 해결 방식이 유사" (구체)</div>
+</div>
+<div class="eg-card">
+<div class="eg-icon">🎨</div>
+<div class="eg-name">컬러</div>
+<div class="eg-dating">소개팅: 보라/핑크/밝은 톤</div>
+<div class="eg-agency">결정사: 네이비/크림/차분한 톤</div>
+</div>
+<div class="eg-card">
+<div class="eg-icon">⏱</div>
+<div class="eg-name">타이머</div>
+<div class="eg-dating">소개팅: "47시간 남음" (긴급성)</div>
+<div class="eg-agency">결정사: 없음. 신중한 판단 유도</div>
+</div>
+<div class="eg-card">
+<div class="eg-icon">📋</div>
+<div class="eg-name">CTA</div>
+<div class="eg-dating">소개팅: "만나볼래요/거절" (가벼움)</div>
+<div class="eg-agency">결정사: "소개 수락/보류" (무게감)</div>
+</div>
+</div>
+
+<h3>언어의 차이</h3>
+<table class="tb">
+<tr><th>맥락</th><th class="bad">소개팅 앱 언어</th><th class="good">결혼정보회사 언어</th></tr>
+<tr><td>상대 소개</td><td class="bad">열정의 스파크 ✦</td><td class="good">이번 소개는 가치관 기반 매칭입니다</td></tr>
+<tr><td>매칭 이유</td><td class="bad">성향 유사도가 높아요</td><td class="good">갈등 해결과 생활 리듬이 유사합니다</td></tr>
+<tr><td>스펙 표시</td><td class="bad">좋은 브레인 / 완벽 비율의 키</td><td class="good">학위증명서 확인 완료</td></tr>
+<tr><td>수락</td><td class="bad">만나볼래요 ❤️</td><td class="good">소개 수락</td></tr>
+<tr><td>거절</td><td class="bad">거절할래요</td><td class="good">이번 소개는 보류</td></tr>
+<tr><td>결제</td><td class="bad">클로버 1개 사용</td><td class="good">결이음권 1회 · 100,000원</td></tr>
+<tr><td>타이머</td><td class="bad">47시간 23분 남음</td><td class="good">(없음, 신중한 판단 유도)</td></tr>
+</table>
+
+<div class="bx gd">
+<div class="bx-l">정리</div>
+<p>소개팅 앱은 <strong>"빠르게 판단하고 넘겨라"</strong>가 문법.</p>
+<p>결혼정보회사는 <strong>"충분히 이해하고 결정해라"</strong>가 문법.</p>
+<p>같은 사람을 소개하더라도, 보여주는 순서와 표현이 달라지면 서비스의 카테고리가 바뀐다.</p>
+</div>
+</section>
+
+<hr class="dv">
+
+<!-- ===== S3: 화면 비교 ===== -->
+<section class="s">
+<div class="sn">03</div>
+<h2>매칭 화면 — Before / After</h2>
+<p class="s-sub">같은 사람을 소개하는 두 가지 방법</p>
+
+<div class="mk">
+<div class="mk-t">메인 매칭 화면 비교</div>
+<div class="pr">
+
+<!-- BEFORE: Dating app feel -->
+<div class="pw">
+<div class="pl bf">현재 — 소개팅 앱 느낌</div>
+<div class="ph"><div class="ps">
+<div class="sb lt"><span>10:18</span><span style="font-size:10px">📶 🔋89</span></div>
+<div class="da">
+<div class="da-hdr"><div class="da-logo">결하다</div><div style="font-size:12px;color:var(--txm)">❋ 20</div></div>
+<div class="da-photo">👤
+<div class="da-info"><div class="da-name">김파랑, 34</div><div class="da-sub">서울 강남구, 연예인</div></div>
+<div class="da-timer">⏱ 47시간 23분</div>
+</div>
+<div class="da-type"><div class="da-type-n">🔥 열정의 스파크</div><div class="da-type-d">함께하면 세상이 두 배로 즐거운 열정 커플</div></div>
+<div class="da-wave"></div>
+<div class="da-quote">❝ 성향 유사도가 높아서 매칭되었습니다. 공통 관심사가 많고 대화가 잘 통할 것 같아서 선택했어요. ❞</div>
+<div class="da-badges">
+<div class="da-badge"><div class="da-badge-i">😊</div><div class="da-badge-n">외모</div><div class="da-badge-v">매력적</div></div>
+<div class="da-badge"><div class="da-badge-i">👥</div><div class="da-badge-n">유사성</div><div class="da-badge-v">비슷한 성향</div></div>
+<div class="da-badge"><div class="da-badge-i">🎓</div><div class="da-badge-n">학력</div><div class="da-badge-v">좋은 브레인</div></div>
+<div class="da-badge"><div class="da-badge-i">💼</div><div class="da-badge-n">직업</div><div class="da-badge-v">안정된</div></div>
+<div class="da-badge"><div class="da-badge-i">📏</div><div class="da-badge-n">키</div><div class="da-badge-v">완벽 비율</div></div>
+<div class="da-badge"><div class="da-badge-i">💰</div><div class="da-badge-n">연봉</div><div class="da-badge-v">보장된 미래</div></div>
+</div>
+</div>
+</div></div>
+</div>
+
+<!-- AFTER: Marriage agency feel -->
+<div class="pw">
+<div class="pl af">제안 — 결혼정보회사 느낌</div>
+<div class="ph"><div class="ps">
+<div class="sb cr"><span>10:18</span><span style="font-size:10px">📶 🔋89</span></div>
+<div class="ma">
+<div class="ma-hdr"><div class="ma-logo">결<span class="g">하다</span></div><div style="display:flex;align-items:center;gap:8px"><span style="font-size:8px;color:var(--txl);background:var(--cd);padding:2px 5px;border-radius:3px">결이음 2회</span><span style="width:24px;height:24px;border-radius:50%;background:var(--cd);display:flex;align-items:center;justify-content:center;font-size:10px">👤</span></div></div>
+
+<div class="rh"><div class="rh-n">제3회 소개</div><div class="rh-t">이영준님을 위한<br>매칭 분석 리포트</div></div>
+
+<div class="ann">↑ 소개팅 앱: "김파랑, 34" / 결정사: "이영준님을 위한 소개" — 주어가 다르다</div>
+
+<!-- 1. 검증 먼저 -->
+<div class="trust">
+<div class="trust-icon">🛡</div>
+<div class="trust-text"><strong>서류 검증 완료</strong> — 혼인 상태 · 직업 · 학력 · 본인 사진 확인됨</div>
+</div>
+
+<div class="ann">↑ 결정사 느낌의 핵심: 사진보다 "검증"이 먼저 보인다</div>
+
+<!-- 2. 매칭 타입 -->
+<div class="mt">
+<div class="mt-badge">✦ 느린 듯 깊은 사이</div>
+<div class="mt-sub">28가지 매칭 타입 중 · P2 가치관 기반</div>
+<div class="mt-desc">각자의 속도를 존중하면서 깊이 있는 관계를 쌓는 유형. 대화를 통한 이해를 중시하고, 시간이 갈수록 단단해지는 관계.</div>
+</div>
+
+<!-- 3. 파동 -->
+<div class="wv">
+<div class="wv-t">〰️ 두 분의 결 파동</div>
+<div class="wv-sub">겹치는 영역이 넓을수록 자연스러운 조화</div>
+<svg class="wv-svg" viewBox="0 0 260 70" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="o2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#9b8ec4" stop-opacity=".08"/><stop offset="50%" stop-color="#c9a55c" stop-opacity=".15"/><stop offset="100%" stop-color="#9b8ec4" stop-opacity=".08"/></linearGradient></defs>
+<path d="M0,40 C25,28 50,20 75,35 C100,50 115,18 140,32 C165,46 190,16 215,30 C240,44 255,25 260,35 L260,50 C255,42 240,60 215,48 C190,34 165,58 140,46 C115,32 100,56 75,44 C50,32 25,48 0,38 Z" fill="url(#o2)"/>
+<path d="M0,40 C25,28 50,20 75,35 C100,50 115,18 140,32 C165,46 190,16 215,30 C240,44 255,25 260,35" fill="none" stroke="#9b8ec4" stroke-width="2" stroke-linecap="round"><animate attributeName="d" dur="4s" repeatCount="indefinite" values="M0,40 C25,28 50,20 75,35 C100,50 115,18 140,32 C165,46 190,16 215,30 C240,44 255,25 260,35;M0,37 C25,25 50,24 75,38 C100,52 115,22 140,28 C165,42 190,20 215,34 C240,48 255,28 260,32;M0,40 C25,28 50,20 75,35 C100,50 115,18 140,32 C165,46 190,16 215,30 C240,44 255,25 260,35"/></path>
+<path d="M0,38 C25,48 50,36 75,46 C100,58 115,34 140,48 C165,60 190,38 215,50 C240,60 255,44 260,52" fill="none" stroke="#c9a55c" stroke-width="2" stroke-linecap="round"><animate attributeName="d" dur="4s" repeatCount="indefinite" values="M0,38 C25,48 50,36 75,46 C100,58 115,34 140,48 C165,60 190,38 215,50 C240,60 255,44 260,52;M0,42 C25,52 50,40 75,42 C100,54 115,38 140,52 C165,56 190,42 215,46 C240,56 255,40 260,48;M0,38 C25,48 50,36 75,46 C100,58 115,34 140,48 C165,60 190,38 215,50 C240,60 255,44 260,52"/></path>
+<circle cx="75" cy="40" r="3" fill="#c9a55c" opacity=".3"><animate attributeName="r" dur="3s" repeatCount="indefinite" values="2;4;2"/></circle>
+<circle cx="140" cy="40" r="3" fill="#c9a55c" opacity=".3"><animate attributeName="r" dur="3s" repeatCount="indefinite" values="2.5;4.5;2.5"/></circle>
+<circle cx="215" cy="40" r="3" fill="#c9a55c" opacity=".3"><animate attributeName="r" dur="3s" repeatCount="indefinite" values="2;4;2"/></circle>
+</svg>
+<div class="wv-leg"><div class="wv-leg-i"><div class="wv-leg-d" style="background:#9b8ec4"></div>이영준</div><div class="wv-leg-i"><div class="wv-leg-d" style="background:#c9a55c"></div>김파랑</div><div class="wv-leg-i"><div class="wv-leg-d" style="background:rgba(201,165,92,.25)"></div>조화</div></div>
+</div>
+
+<!-- 4. 매칭 이유 (정성적) -->
+<div class="cd">
+<div class="cd-t">이 분을 소개하는 이유</div>
+<p>두 분 모두 <strong>관계에서 속도를 존중하는 성향</strong>. 대화를 통해 천천히 신뢰를 쌓는 패턴이 공통되고, 취미와 가치관에서 자연스러운 겹침이 있다.</p>
+</div>
+
+<div class="ann">↑ 소개팅: "유사도가 높아요" / 결정사: "왜 이 사람인지" 구체적으로</div>
+
+<!-- 5. 주의할 점 -->
+<div class="cau">
+<div class="cau-l">💡 참고하면 좋을 점</div>
+<p>주말 활용 방식이 다소 다르다. 초기 데이트는 카페처럼 두 스타일이 만나는 장소가 적합.</p>
+</div>
+
+<div class="ann">↑ 결정사 느낌: 전부 좋다고만 안 한다. 솔직한 관찰 1개가 신뢰를 만듦</div>
+
+<!-- 6. 프로필 (사진 30%) -->
+<div class="pf">
+<div class="pf-photo">👤<div class="pf-vb">✓</div></div>
+<div class="pf-info">
+<div class="pf-name">김파랑, 34</div>
+<div class="pf-basics">서울 강남구 · 연예인</div>
+<div class="pf-vi">
+<div class="pf-item"><span>✓</span> 혼인관계증명서 확인</div>
+<div class="pf-item"><span>✓</span> 재직증명서 확인</div>
+<div class="pf-item"><span>✓</span> 학위증명서 대조</div>
+<div class="pf-item"><span>✓</span> 본인 사진 확인</div>
+</div>
+</div>
+</div>
+
+<div class="ann">↑ 사진이 30%. "매력적인 외모" 대신 "재직증명서 확인 완료". 이게 결정사 언어</div>
+
+<!-- 7. 공통 키워드 -->
+<div class="kw">
+<div class="kw-t">공통 키워드</div>
+<div class="kw-r"><span>📚</span> 독서 · 카페 문화 <span class="kw-m">공통 관심사</span></div>
+<div class="kw-r"><span>💬</span> 깊은 대화 중시 <span class="kw-m">소통 일치</span></div>
+<div class="kw-r"><span>🏡</span> 안정적 가정 추구 <span class="kw-m">가치관 일치</span></div>
+</div>
+
+<!-- 8. 매니저 코멘트 -->
+<div class="mgr">
+<div class="mgr-l">✦ 매칭팀 메모</div>
+<div class="mgr-t">비슷한 취미와 가치관. 카페 독서와 산책을 함께 즐길 수 있고, 진솔한 대화를 중시하는 점이 잘 어울림.</div>
+</div>
+
+<!-- 9. Trust 바 -->
+<div class="trust">
+<div class="trust-icon">📋</div>
+<div class="trust-text"><strong>결이음권 1회 · 100,000원</strong> — 서류 검증 + 매칭 리포트 + 일정 조율 + 노쇼 보호 포함</div>
+</div>
+
+<div class="ann">↑ 가격도 "결정사 패키지" 느낌. 소개팅 앱의 "좋아요 1개 = 코인" 아님</div>
+
+<!-- CTA -->
+<div class="cta">
+<button class="cta-y">소개 수락</button>
+<button class="cta-n">이번 소개는 보류</button>
+</div>
+
+<div class="bnv"><div class="bnv-i act"><div class="bnv-ic">📋</div>소개</div><div class="bnv-i"><div class="bnv-ic">💬</div>진행중</div><div class="bnv-i"><div class="bnv-ic">📊</div>나의 결</div><div class="bnv-i"><div class="bnv-ic">⚙️</div>설정</div></div>
+</div>
+</div></div>
+</div>
+
+</div>
+</div>
+
+<h3>요소별 변경 정리</h3>
+<table class="tb">
+<tr><th>요소</th><th class="bad">현재 (소개팅 앱)</th><th class="good">제안 (결혼정보회사)</th><th>왜?</th></tr>
+<tr><td>첫 화면</td><td class="bad">사진 풀스크린</td><td class="good">검증 완료 바 → 매칭 타입</td><td>판단의 시작점이 다르다</td></tr>
+<tr><td>사진 비중</td><td class="bad">60%+</td><td class="good">30% (검증 뱃지 동반)</td><td>얼굴이 아니라 이유가 먼저</td></tr>
+<tr><td>타이머</td><td class="bad">47시간 23분</td><td class="good">없음</td><td>긴급성 ≠ 결혼 서비스</td></tr>
+<tr><td>뱃지</td><td class="bad">외모/키/브레인 (평가)</td><td class="good">증명서 확인 완료 (검증)</td><td>평가가 아니라 사실</td></tr>
+<tr><td>매칭 이유</td><td class="bad">"유사도 높아요" (1줄)</td><td class="good">구체적 이유 3~4문장</td><td>결정사 매니저가 하는 설명</td></tr>
+<tr><td>주의점</td><td class="bad">없음 (전부 긍정)</td><td class="good">"주말 방식이 다소 다르다"</td><td>솔직한 관찰 = 신뢰</td></tr>
+<tr><td>CTA</td><td class="bad">만나볼래요 / 거절</td><td class="good">소개 수락 / 보류</td><td>언어의 무게감</td></tr>
+<tr><td>결제 표현</td><td class="bad">클로버 / ❋ 코인</td><td class="good">결이음권 · 100,000원</td><td>원화 투명 표시</td></tr>
+<tr><td>컬러</td><td class="bad">보라/핑크 중심</td><td class="good">네이비/크림/차분한 톤</td><td>로맨틱 → 신뢰</td></tr>
+<tr><td>하단 탭</td><td class="bad">매칭/진행중</td><td class="good">소개/진행중</td><td>"매칭" = 앱 언어, "소개" = 결정사 언어</td></tr>
+</table>
+</section>
+
+<hr class="dv">
+
+<!-- ===== S4: 다른 화면들 ===== -->
+<section class="s">
+<div class="sn">04</div>
+<h2>매칭 외 화면에서 결혼정보회사 느낌을 만드는 법</h2>
+<p class="s-sub">메인 화면만 바꾸면 안 된다. 모든 접점이 같은 톤이어야 한다</p>
+
+<h3>온보딩</h3>
+<div class="cmp">
+<div class="cmp-card dating">
+<div class="cmp-label">소개팅 앱 느낌</div>
+<p>"매니저의 감이 아닌 데이터로 찾는 평생의 인연"</p>
+<p>AI 생성 커플 일러스트</p>
+<p>기존 결정사 가격 비교표</p>
+<p>→ 기술/가격 어필 = 앱 마케팅 문법</p>
+</div>
+<div class="cmp-card marriage">
+<div class="cmp-label">결혼정보회사 느낌</div>
+<p>"결혼은 스펙만으로 오래가지 않습니다"</p>
+<p>깔끔한 텍스트 + 최소 아이콘</p>
+<p>"결하다는 만나기 전에 맞는 결을 먼저 봅니다"</p>
+<p>→ 유저의 고충부터 시작 = 상담 문법</p>
+</div>
+</div>
+
+<h3>가입/인증</h3>
+<div class="cmp">
+<div class="cmp-card dating">
+<div class="cmp-label">소개팅 앱 느낌</div>
+<p>"가입하기" 버튼 크게</p>
+<p>인증 항목을 체크리스트로 나열</p>
+<p>"작성 완료" 버튼</p>
+<p>→ 양식 작성 느낌</p>
+</div>
+<div class="cmp-card marriage">
+<div class="cmp-label">결혼정보회사 느낌</div>
+<p>"정확한 소개는 정확한 확인에서 시작됩니다"</p>
+<p>왜 이 서류가 필요한지 항목별 설명</p>
+<p>"인증 완료 → 검증된 회원 소개가 시작됩니다"</p>
+<p>→ 절차의 이유를 설명 = 상담 느낌</p>
+</div>
+</div>
+
+<h3>결제</h3>
+<div class="cmp">
+<div class="cmp-card dating">
+<div class="cmp-label">소개팅 앱 느낌</div>
+<p>"클로버 1개 사용"</p>
+<p>🍀 아이콘 + 충전하기 버튼</p>
+<p>패키지 내역 없이 바로 결제</p>
+<p>→ 게임 아이템 구매 느낌</p>
+</div>
+<div class="cmp-card marriage">
+<div class="cmp-label">결혼정보회사 느낌</div>
+<p>"만남이 성사되었습니다"</p>
+<p>결이음 패키지 포함 내역 5줄</p>
+<p>"결이음권 1회 · 100,000원" + 환불 규정</p>
+<p>→ 서비스 계약 느낌</p>
+</div>
+</div>
+
+<h3>만남 조율</h3>
+<div class="cmp">
+<div class="cmp-card dating">
+<div class="cmp-label">소개팅 앱 느낌</div>
+<p>매칭/조율/만남당일/패널티 4탭</p>
+<p>유저가 일정 제안 → 재조정 → 확정 → 장소 선택</p>
+<p>체크인: 상의색상/하의색상/자리위치 입력</p>
+<p>→ "내가 할 일이 많다" = 셀프서비스</p>
+</div>
+<div class="cmp-card marriage">
+<div class="cmp-label">결혼정보회사 느낌</div>
+<p>진행 상태 1개 타임라인</p>
+<p>유저: 가능한 날짜 3개 체크 → 결하다가 확정</p>
+<p>장소: 결하다가 추천 → 승인만</p>
+<p>→ "서비스가 대신해준다" = 대행</p>
+</div>
+</div>
+
+<h3>앱 전체 톤</h3>
+<div class="cmp">
+<div class="cmp-card dating">
+<div class="cmp-label">소개팅 앱 톤</div>
+<p>보라/핑크 컬러</p>
+<p>둥근 카드, 이모지 많음</p>
+<p>감성적 문구 ("열정의 스파크")</p>
+<p>타이머, 코인, 게이미피케이션</p>
+<p>AI 생성 일러스트</p>
+<p>→ "가볍고 재밌는 경험"</p>
+</div>
+<div class="cmp-card marriage">
+<div class="cmp-label">결혼정보회사 톤</div>
+<p>네이비/크림/차분한 톤</p>
+<p>깔끔한 카드, 이모지 최소화</p>
+<p>사실적 문구 ("갈등 해결 방식 유사")</p>
+<p>타이머 없음, 원화 직접 표시</p>
+<p>검증 뱃지, Trust Center</p>
+<p>→ "신뢰할 수 있는 서비스"</p>
+</div>
+</div>
+</section>
+
+<hr class="dv">
+
+<!-- ===== S5: 체크리스트 ===== -->
+<section class="s">
+<div class="sn">05</div>
+<h2>결혼정보회사 느낌 체크리스트</h2>
+<p class="s-sub">모든 화면에서 이 항목을 확인한다</p>
+
+<table class="tb">
+<tr><th>#</th><th>체크 항목</th><th>소개팅 앱이면</th><th>결정사면</th></tr>
+<tr><td>1</td><td>첫 화면에서 가장 먼저 보이는 것</td><td class="bad">사진</td><td class="good">검증 사실 또는 소개 이유</td></tr>
+<tr><td>2</td><td>사진의 역할</td><td class="bad">판단의 시작</td><td class="good">검증된 정보 중 하나</td></tr>
+<tr><td>3</td><td>뱃지/태그의 내용</td><td class="bad">평가 ("매력적")</td><td class="good">사실 ("증명서 확인")</td></tr>
+<tr><td>4</td><td>매칭 이유의 구체성</td><td class="bad">한 줄 감성</td><td class="good">3~4문장 구체적 분석</td></tr>
+<tr><td>5</td><td>주의점/리스크 안내</td><td class="bad">없음</td><td class="good">1개 솔직한 관찰</td></tr>
+<tr><td>6</td><td>CTA 언어</td><td class="bad">만나볼래요/거절</td><td class="good">소개 수락/보류</td></tr>
+<tr><td>7</td><td>결제 표현</td><td class="bad">가상화폐/코인</td><td class="good">원화 + 패키지 내역</td></tr>
+<tr><td>8</td><td>타이머/긴급성 장치</td><td class="bad">있음</td><td class="good">없음</td></tr>
+<tr><td>9</td><td>컬러 톤</td><td class="bad">로맨틱(보라/핑크)</td><td class="good">신뢰(네이비/크림)</td></tr>
+<tr><td>10</td><td>유저가 직접 하는 일의 양</td><td class="bad">많음 (셀프서비스)</td><td class="good">최소 (대행)</td></tr>
+<tr><td>11</td><td>법적 정보 노출</td><td class="bad">약관 하단 묻힘</td><td class="good">Trust Center 전면 배치</td></tr>
+<tr><td>12</td><td>프라이버시 보호</td><td class="bad">언급 없음</td><td class="good">지인 차단, 단계별 공개 명시</td></tr>
+</table>
+
+<div class="bx gd">
+<div class="bx-l">한 문장 정리</div>
+<p>결혼정보회사 느낌은 "고급스러운 디자인"이 아니라 <strong>"왜 이 소개가 왔는지, 무엇이 검증되었는지, 서비스가 뭘 대신해주는지"가 화면에서 바로 읽히는 것</strong>이다.</p>
+</div>
+
+<div class="qt">사진이 커서 소개팅 앱으로 보이는 게 아니다. 사진이 "판단의 첫 문법"으로 쓰여서 소개팅 앱으로 보이는 것이다. 결혼정보회사의 첫 문법은 "이유"다.</div>
+</section>
+
+</div>
+</body>
+</html>
