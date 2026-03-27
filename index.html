@@ -180,6 +180,16 @@ strong{font-weight:600;color:var(--ac)}
 /* Quote */
 .qt{border-left:2px solid var(--gd);padding-left:16px;margin:20px 0;font-style:italic;color:var(--txm);font-size:15px;max-width:880px}
 
+/* Reading card */
+.rd{margin:0 12px 10px;background:linear-gradient(135deg,#f7f4ff,#f0f4ff);border:1px solid #d8d0e8;border-radius:12px;padding:14px}
+.rd-label{font-size:9px;letter-spacing:1.5px;font-weight:600;margin-bottom:5px}
+.rd-label.you{color:var(--lav)}
+.rd-label.fit{color:#8a7340}
+.rd-text{font-size:11px;color:var(--tx);line-height:1.7}
+.rd-text strong{color:var(--nv);font-weight:600}
+.rd-line{border:none;border-top:1px dashed #d8d0e8;margin:8px 0}
+.rd-arrow{text-align:center;font-size:10px;color:var(--lav);margin:4px 0}
+
 @media(max-width:768px){.c{padding:32px 16px 80px}.hd h1{font-size:26px}.cmp,.eg{grid-template-columns:1fr}.ph{width:280px;height:606px}.pr{gap:16px}}
 </style>
 </head>
@@ -309,13 +319,14 @@ strong{font-weight:600;color:var(--ac)}
 <section class="s">
 <div class="sn">03</div>
 <h2>매칭 화면 — Before / After</h2>
-<p class="s-sub">같은 사람을 소개하는 두 가지 방법</p>
+<p class="s-sub">같은 사람을 소개하는 두 가지 방법. 깔끔한 버전을 먼저, 주석 버전은 뒤에.</p>
 
+<!-- === 3-1: 깔끔한 비교 (주석 없음) === -->
 <div class="mk">
-<div class="mk-t">메인 매칭 화면 비교</div>
+<div class="mk-t">메인 매칭 화면 비교 — 깔끔한 버전</div>
 <div class="pr">
 
-<!-- BEFORE: Dating app feel -->
+<!-- BEFORE -->
 <div class="pw">
 <div class="pl bf">현재 — 소개팅 앱 느낌</div>
 <div class="ph"><div class="ps">
@@ -341,7 +352,7 @@ strong{font-weight:600;color:var(--ac)}
 </div></div>
 </div>
 
-<!-- AFTER: Marriage agency feel -->
+<!-- AFTER (깔끔) -->
 <div class="pw">
 <div class="pl af">제안 — 결혼정보회사 느낌</div>
 <div class="ph"><div class="ps">
@@ -351,24 +362,27 @@ strong{font-weight:600;color:var(--ac)}
 
 <div class="rh"><div class="rh-n">제3회 소개</div><div class="rh-t">이영준님을 위한<br>매칭 분석 리포트</div></div>
 
-<div class="ann">↑ 소개팅 앱: "김파랑, 34" / 결정사: "이영준님을 위한 소개" — 주어가 다르다</div>
+<!-- 검증 -->
+<div class="trust"><div class="trust-icon">🛡</div><div class="trust-text"><strong>서류 검증 완료</strong> — 혼인 상태 · 직업 · 학력 · 본인 사진 확인됨</div></div>
 
-<!-- 1. 검증 먼저 -->
-<div class="trust">
-<div class="trust-icon">🛡</div>
-<div class="trust-text"><strong>서류 검증 완료</strong> — 혼인 상태 · 직업 · 학력 · 본인 사진 확인됨</div>
+<!-- 결 리딩 (콜드리딩/핫리딩) -->
+<div class="rd">
+<div class="rd-label you">이영준님은 이런 사람입니다</div>
+<div class="rd-text">빠른 설렘보다 <strong>편안한 대화에서 확신을 느끼는 타입</strong>. 감정을 천천히 꺼내지만 한번 신뢰하면 깊이 헌신한다. 갈등 상황에서는 감정적 폭발보다 <strong>대화로 풀려는 성향</strong>이 강하고, 생활 리듬은 안정적이며 주말에는 조용한 시간을 선호한다.</div>
+<hr class="rd-line">
+<div class="rd-arrow">↓ 그래서 이런 분이 맞습니다</div>
+<div class="rd-label fit">김파랑님과의 궁합</div>
+<div class="rd-text">김파랑님도 <strong>대화의 깊이를 중시</strong>하며, 연락 방식과 갈등 해결 패턴이 유사하다. 경제관과 자녀관에서 방향이 같고, 서로의 속도를 존중하는 관계를 원한다는 점이 겹친다. <strong>결혼 후 자주 깨지는 지점(연락/갈등/경제)에서 충돌 가능성이 낮다.</strong></div>
 </div>
 
-<div class="ann">↑ 결정사 느낌의 핵심: 사진보다 "검증"이 먼저 보인다</div>
-
-<!-- 2. 매칭 타입 -->
+<!-- 매칭 타입 -->
 <div class="mt">
 <div class="mt-badge">✦ 느린 듯 깊은 사이</div>
 <div class="mt-sub">28가지 매칭 타입 중 · P2 가치관 기반</div>
 <div class="mt-desc">각자의 속도를 존중하면서 깊이 있는 관계를 쌓는 유형. 대화를 통한 이해를 중시하고, 시간이 갈수록 단단해지는 관계.</div>
 </div>
 
-<!-- 3. 파동 -->
+<!-- 파동 -->
 <div class="wv">
 <div class="wv-t">〰️ 두 분의 결 파동</div>
 <div class="wv-sub">겹치는 영역이 넓을수록 자연스러운 조화</div>
@@ -384,72 +398,98 @@ strong{font-weight:600;color:var(--ac)}
 <div class="wv-leg"><div class="wv-leg-i"><div class="wv-leg-d" style="background:#9b8ec4"></div>이영준</div><div class="wv-leg-i"><div class="wv-leg-d" style="background:#c9a55c"></div>김파랑</div><div class="wv-leg-i"><div class="wv-leg-d" style="background:rgba(201,165,92,.25)"></div>조화</div></div>
 </div>
 
-<!-- 4. 매칭 이유 (정성적) -->
-<div class="cd">
-<div class="cd-t">이 분을 소개하는 이유</div>
-<p>두 분 모두 <strong>관계에서 속도를 존중하는 성향</strong>. 대화를 통해 천천히 신뢰를 쌓는 패턴이 공통되고, 취미와 가치관에서 자연스러운 겹침이 있다.</p>
-</div>
+<!-- 주의할 점 -->
+<div class="cau"><div class="cau-l">💡 참고하면 좋을 점</div><p>주말 활용 방식이 다소 다르다. 초기 데이트는 카페처럼 두 스타일이 만나는 장소가 적합.</p></div>
 
-<div class="ann">↑ 소개팅: "유사도가 높아요" / 결정사: "왜 이 사람인지" 구체적으로</div>
+<!-- 프로필 -->
+<div class="pf"><div class="pf-photo">👤<div class="pf-vb">✓</div></div><div class="pf-info"><div class="pf-name">김파랑, 34</div><div class="pf-basics">서울 강남구 · 연예인</div><div class="pf-vi"><div class="pf-item"><span>✓</span> 혼인관계증명서 확인</div><div class="pf-item"><span>✓</span> 재직증명서 확인</div><div class="pf-item"><span>✓</span> 학위증명서 대조</div><div class="pf-item"><span>✓</span> 본인 사진 확인</div></div></div></div>
 
-<!-- 5. 주의할 점 -->
-<div class="cau">
-<div class="cau-l">💡 참고하면 좋을 점</div>
-<p>주말 활용 방식이 다소 다르다. 초기 데이트는 카페처럼 두 스타일이 만나는 장소가 적합.</p>
-</div>
+<!-- 공통 키워드 -->
+<div class="kw"><div class="kw-t">공통 키워드</div><div class="kw-r"><span>📚</span> 독서 · 카페 문화 <span class="kw-m">공통 관심사</span></div><div class="kw-r"><span>💬</span> 깊은 대화 중시 <span class="kw-m">소통 일치</span></div><div class="kw-r"><span>🏡</span> 안정적 가정 추구 <span class="kw-m">가치관 일치</span></div></div>
 
-<div class="ann">↑ 결정사 느낌: 전부 좋다고만 안 한다. 솔직한 관찰 1개가 신뢰를 만듦</div>
+<!-- 매칭팀 메모 -->
+<div class="mgr"><div class="mgr-l">✦ 매칭팀 메모</div><div class="mgr-t">비슷한 취미와 가치관. 카페 독서와 산책을 함께 즐길 수 있고, 진솔한 대화를 중시하는 점이 잘 어울림.</div></div>
 
-<!-- 6. 프로필 (사진 30%) -->
-<div class="pf">
-<div class="pf-photo">👤<div class="pf-vb">✓</div></div>
-<div class="pf-info">
-<div class="pf-name">김파랑, 34</div>
-<div class="pf-basics">서울 강남구 · 연예인</div>
-<div class="pf-vi">
-<div class="pf-item"><span>✓</span> 혼인관계증명서 확인</div>
-<div class="pf-item"><span>✓</span> 재직증명서 확인</div>
-<div class="pf-item"><span>✓</span> 학위증명서 대조</div>
-<div class="pf-item"><span>✓</span> 본인 사진 확인</div>
-</div>
-</div>
-</div>
-
-<div class="ann">↑ 사진이 30%. "매력적인 외모" 대신 "재직증명서 확인 완료". 이게 결정사 언어</div>
-
-<!-- 7. 공통 키워드 -->
-<div class="kw">
-<div class="kw-t">공통 키워드</div>
-<div class="kw-r"><span>📚</span> 독서 · 카페 문화 <span class="kw-m">공통 관심사</span></div>
-<div class="kw-r"><span>💬</span> 깊은 대화 중시 <span class="kw-m">소통 일치</span></div>
-<div class="kw-r"><span>🏡</span> 안정적 가정 추구 <span class="kw-m">가치관 일치</span></div>
-</div>
-
-<!-- 8. 매니저 코멘트 -->
-<div class="mgr">
-<div class="mgr-l">✦ 매칭팀 메모</div>
-<div class="mgr-t">비슷한 취미와 가치관. 카페 독서와 산책을 함께 즐길 수 있고, 진솔한 대화를 중시하는 점이 잘 어울림.</div>
-</div>
-
-<!-- 9. Trust 바 -->
-<div class="trust">
-<div class="trust-icon">📋</div>
-<div class="trust-text"><strong>결이음권 1회 · 100,000원</strong> — 서류 검증 + 매칭 리포트 + 일정 조율 + 노쇼 보호 포함</div>
-</div>
-
-<div class="ann">↑ 가격도 "결정사 패키지" 느낌. 소개팅 앱의 "좋아요 1개 = 코인" 아님</div>
+<!-- Trust + 가격 -->
+<div class="trust"><div class="trust-icon">📋</div><div class="trust-text"><strong>결이음권 1회 · 100,000원</strong> — 서류 검증 + 매칭 리포트 + 일정 조율 + 노쇼 보호</div></div>
 
 <!-- CTA -->
-<div class="cta">
-<button class="cta-y">소개 수락</button>
-<button class="cta-n">이번 소개는 보류</button>
-</div>
-
+<div class="cta"><button class="cta-y">소개 수락</button><button class="cta-n">이번 소개는 보류</button></div>
 <div class="bnv"><div class="bnv-i act"><div class="bnv-ic">📋</div>소개</div><div class="bnv-i"><div class="bnv-ic">💬</div>진행중</div><div class="bnv-i"><div class="bnv-ic">📊</div>나의 결</div><div class="bnv-i"><div class="bnv-ic">⚙️</div>설정</div></div>
 </div>
 </div></div>
 </div>
 
+</div>
+</div>
+
+<!-- === 3-2: 결 리딩 분석 === -->
+<h3>"결 리딩" — 결하다만의 차별점</h3>
+<p>타로 상담이나 심리 상담에서 "당신은 이런 사람입니다"라는 콜드리딩/핫리딩을 받으면, 사람은 <strong>"이 사람이 나를 안다"</strong>고 느낀다. 결하다도 같은 구조를 쓸 수 있다.</p>
+
+<div class="bx gd">
+<div class="bx-l">결 리딩의 2단 구조</div>
+<p><strong>1단: "당신은 이런 사람"</strong> — 24문항 분석 결과를 기반으로 유저의 관계 성향, 갈등 해결 방식, 생활 리듬, 감정 표현 패턴을 읽어준다. "빠른 설렘보다 편안한 대화에서 확신을 느끼는 타입"처럼.</p>
+<p><strong>2단: "그래서 이 사람이 맞다"</strong> — 상대방의 성향과 연결해서 왜 이 소개가 왔는지를 설명. "김파랑님도 대화의 깊이를 중시하며, 연락 방식과 갈등 해결 패턴이 유사하다."</p>
+<p>이 구조가 들어가면 매칭 리포트가 <strong>"프로필 카드"에서 "상담 리포트"</strong>로 바뀐다. 소개팅 앱에서는 절대 볼 수 없는 경험.</p>
+</div>
+
+<p>"결 리딩"이 효과적인 이유:</p>
+<ul class="ul">
+<li><strong>자기 확인 효과</strong> — "맞아, 나 이런 사람이야"를 느끼면 시스템 신뢰도가 급상승</li>
+<li><strong>소개 납득</strong> — "내가 이런 사람이니까 이 사람이 맞다"는 논리가 성립</li>
+<li><strong>차별화</strong> — 어떤 소개팅 앱도, 어떤 결정사도 이걸 화면에서 하지 않음</li>
+<li><strong>바이럴</strong> — "결하다에서 내 관계 성향 분석해줬는데 소름"이 공유 트리거</li>
+</ul>
+
+<!-- === 3-3: 주석 달린 비교 === -->
+<div class="mk">
+<div class="mk-t">제안 화면 — 주석 달린 분석 버전</div>
+<div class="pr">
+<div class="pw">
+<div class="pl nw">주석 포함 — 왜 이렇게 바꿨는지</div>
+<div class="ph"><div class="ps">
+<div class="sb cr"><span>10:18</span><span style="font-size:10px">📶 🔋89</span></div>
+<div class="ma">
+<div class="ma-hdr"><div class="ma-logo">결<span class="g">하다</span></div><div style="display:flex;align-items:center;gap:8px"><span style="font-size:8px;color:var(--txl);background:var(--cd);padding:2px 5px;border-radius:3px">결이음 2회</span><span style="width:24px;height:24px;border-radius:50%;background:var(--cd);display:flex;align-items:center;justify-content:center;font-size:10px">👤</span></div></div>
+
+<div class="rh"><div class="rh-n">제3회 소개</div><div class="rh-t">이영준님을 위한<br>매칭 분석 리포트</div></div>
+<div class="ann">↑ 주어가 "김파랑, 34"가 아니라 "이영준님을 위한 소개". 받는 사람 중심.</div>
+
+<div class="trust"><div class="trust-icon">🛡</div><div class="trust-text"><strong>서류 검증 완료</strong> — 혼인 상태 · 직업 · 학력 · 본인 사진 확인됨</div></div>
+<div class="ann">↑ 사진보다 "검증"이 먼저. 결정사 매니저가 "이 분은 확인된 분입니다"라고 하는 것과 같음.</div>
+
+<div class="rd">
+<div class="rd-label you">이영준님은 이런 사람입니다</div>
+<div class="rd-text">빠른 설렘보다 <strong>편안한 대화에서 확신을 느끼는 타입</strong>. 감정을 천천히 꺼내지만 한번 신뢰하면 깊이 헌신한다. 갈등 상황에서는 <strong>대화로 풀려는 성향</strong>이 강하다.</div>
+<hr class="rd-line">
+<div class="rd-arrow">↓ 그래서 이런 분이 맞습니다</div>
+<div class="rd-label fit">김파랑님과의 궁합</div>
+<div class="rd-text">김파랑님도 <strong>대화의 깊이를 중시</strong>. 연락 방식과 갈등 해결 패턴이 유사. <strong>결혼 후 자주 깨지는 지점에서 충돌 가능성이 낮다.</strong></div>
+</div>
+<div class="ann">↑ "결 리딩" — 타로/심리 상담처럼 "당신은 이런 사람 → 그래서 이 사람이 맞다". 소개팅 앱에는 없는 경험.</div>
+
+<div class="mt">
+<div class="mt-badge">✦ 느린 듯 깊은 사이</div>
+<div class="mt-sub">28가지 매칭 타입 중</div>
+<div class="mt-desc">각자의 속도를 존중하며 깊어지는 유형.</div>
+</div>
+
+<div class="cau"><div class="cau-l">💡 참고하면 좋을 점</div><p>주말 활용 방식이 다소 다르다.</p></div>
+<div class="ann">↑ 전부 좋다고만 안 한다. 솔직한 관찰 1개 = 신뢰.</div>
+
+<div class="pf"><div class="pf-photo">👤<div class="pf-vb">✓</div></div><div class="pf-info"><div class="pf-name">김파랑, 34</div><div class="pf-basics">서울 강남구 · 연예인</div><div class="pf-vi"><div class="pf-item"><span>✓</span> 혼인관계증명서 확인</div><div class="pf-item"><span>✓</span> 재직증명서 확인</div></div></div></div>
+<div class="ann">↑ 사진 30%. "매력적인 외모" 대신 "증명서 확인". 검증형 언어.</div>
+
+<div class="trust"><div class="trust-icon">📋</div><div class="trust-text"><strong>결이음권 1회 · 100,000원</strong> — 서류 검증 + 리포트 + 일정 조율 + 노쇼 보호</div></div>
+<div class="ann">↑ 가상화폐 아님. 원화 직접 + 패키지 내역 = 서비스 계약 느낌.</div>
+
+<div class="cta"><button class="cta-y">소개 수락</button><button class="cta-n">이번 소개는 보류</button></div>
+<div class="ann">↑ "만나볼래요/거절" 아님. "수락/보류" = 결정사 언어.</div>
+<div class="bnv"><div class="bnv-i act"><div class="bnv-ic">📋</div>소개</div><div class="bnv-i"><div class="bnv-ic">💬</div>진행중</div><div class="bnv-i"><div class="bnv-ic">📊</div>나의 결</div><div class="bnv-i"><div class="bnv-ic">⚙️</div>설정</div></div>
+</div>
+</div></div>
+</div>
 </div>
 </div>
 
